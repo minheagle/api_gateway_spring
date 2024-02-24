@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: gateway/service1
+          uri: http://127.0.0.1:8081
+          predicates:
+            - Path=/gateway/service1/**
+          filters:
+            - StripPrefix=2
