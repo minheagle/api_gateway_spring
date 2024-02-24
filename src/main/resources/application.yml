@@ -5,9 +5,14 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: gateway/service1
-          uri: http://127.0.0.1:8081
+        - id: gateway/logging
+          uri: http://127.0.0.1:4567
           predicates:
-            - Path=/gateway/service1/**
+            - Path=/gateway/logging/**
           filters:
             - StripPrefix=2
+
+
+services:
+  logging:
+    uri: http://127.0.0.1:4567
